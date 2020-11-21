@@ -46,12 +46,12 @@ export class AppSettingsService {
 
   serverOptions = [
     {
-      name: 'Random',
-      value: 'random',
-      api: null,
+      name: 'Raicoin explorer',
+      value: 'raicoin',
+      api: 'https://rpc.raicoin.org',
       ws: null,
       auth: null,
-      shouldRandom: false,
+      shouldRandom: true,
     },
     {
       name: 'My Nano Ninja',
@@ -59,7 +59,7 @@ export class AppSettingsService {
       api: 'https://mynano.ninja/api/node',
       ws: 'wss://ws.mynano.ninja',
       auth: null,
-      shouldRandom: true,
+      shouldRandom: false,
     },
     {
       name: 'Nanos.cc',
@@ -67,7 +67,7 @@ export class AppSettingsService {
       api: 'https://nault.nanos.cc/proxy',
       ws: 'wss://nault-ws.nanos.cc',
       auth: null,
-      shouldRandom: true,
+      shouldRandom: false,
     },
     {
       name: 'VoxPopuli',
@@ -176,8 +176,8 @@ export class AppSettingsService {
   clearAppSettings() {
     localStorage.removeItem(this.storeKey);
     this.settings = {
-      displayDenomination: 'mnano',
-      // displayPrefix: 'xrb',
+      displayDenomination: 'mrai',
+      // displayPrefix: 'rai',
       walletStore: 'localStorage',
       displayCurrency: 'USD',
       defaultRepresentative: null,

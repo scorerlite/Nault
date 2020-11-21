@@ -147,7 +147,7 @@ function getApplicationMenu() {
       submenu: [
         {
           label: 'View GitHub',
-          click () { loadExternal('https://github.com/Nault/Nault'); }
+          click () { loadExternal('https://github.com/scorerlite/Nault'); }
         },
         {
           label: 'Submit Issue',
