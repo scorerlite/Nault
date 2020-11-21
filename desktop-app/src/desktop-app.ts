@@ -6,7 +6,7 @@ import * as url from 'url';
 import * as path from 'path';
 import { initialize } from './lib/ledger';
 
-app.setAsDefaultProtocolClient('nano'); // Register handler for nano: links
+app.setAsDefaultProtocolClient('rai'); // Register handler for rai: links
 
 // Initialize Ledger device detection
 initialize();
