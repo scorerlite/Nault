@@ -428,43 +428,43 @@ export class RepresentativeService {
   // tslint:disable-next-line:member-ordering
   defaultRepresentatives = [
     {
-      id: 'nano_3arg3asgtigae3xckabaaewkx3bzsh7nwz7jkmjos79ihyaxwphhm6qgjps4',
-      name: 'Nano Foundation #1',
+      id: 'rai_3h5s5bgaf1jp1rofe5umxan84kiwxj3ppeuyids7zzaxahsohzchcyxqzwp6',
+      name: 'official node #1',
       warn: true,
     },
     {
-      id: 'nano_1stofnrxuz3cai7ze75o174bpm7scwj9jn3nxsn8ntzg784jf1gzn1jjdkou',
-      name: 'Nano Foundation #2',
+      id: 'rai_1os5ozxsjajpnkdj6zghzdy5fjncpa6egkjisgggutxkbmqicc8mjjfy87ja',
+      name: 'official node #2',
       warn: true,
     },
     {
-      id: 'nano_1q3hqecaw15cjt7thbtxu3pbzr1eihtzzpzxguoc37bj1wc5ffoh7w74gi6p',
-      name: 'Nano Foundation #3',
+      id: 'rai_1khj7pa81ffn3o44jfqopeoq3apxpdagpjo9gu1nwc6x9ccpjggjouhifkkw',
+      name: 'official node #3',
       warn: true,
     },
     {
-      id: 'nano_3dmtrrws3pocycmbqwawk6xs7446qxa36fcncush4s1pejk16ksbmakis78m',
-      name: 'Nano Foundation #4',
+      id: 'rai_1b5wb8hs5d3u5q8cnesk5xprr4damryn9xmrju7grdrtq6sxpanrwjo4s4r3',
+      name: 'official node #4',
       warn: true,
     },
     {
-      id: 'nano_3hd4ezdgsp15iemx7h81in7xz5tpxi43b6b41zn3qmwiuypankocw3awes5k',
-      name: 'Nano Foundation #5',
+      id: 'rai_391mam7h9gxedh3bg9ge44tmbt3c5mutott7ug99u6eqdouwgftzed1tz9i5',
+      name: 'official node #5',
       warn: true,
     },
     {
-      id: 'nano_1awsn43we17c1oshdru4azeqjz9wii41dy8npubm4rg11so7dx3jtqgoeahy',
-      name: 'Nano Foundation #6',
+      id: 'rai_3fbshbikq9w5pz8hpm4bcp1ugzamkqq8sqpch6qd4oy1bwrwdzjpj6fyhbio',
+      name: 'official node #6',
       warn: true,
     },
     {
-      id: 'nano_1anrzcuwe64rwxzcco8dkhpyxpi8kd7zsjc1oeimpc3ppca4mrjtwnqposrs',
-      name: 'Nano Foundation #7',
+      id: 'rai_1pypba9m6biy44zhdw8csa5imd3aaw6w6nbhh58zijf4hrgfres44ate77ug',
+      name: 'official node #7',
       warn: true,
     },
     {
-      id: 'nano_1hza3f7wiiqa7ig3jczyxj5yo86yegcmqk3criaz838j91sxcckpfhbhhra1',
-      name: 'Nano Foundation #8',
+      id: 'rai_11nfiez6ubhgstcro88t8i3ucu9qze156tue5qg71fo3ghnoc1r8djbpnmqb',
+      name: 'official node #8',
       warn: true,
     },
   ];

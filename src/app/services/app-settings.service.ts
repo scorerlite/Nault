@@ -27,8 +27,8 @@ export class AppSettingsService {
   storeKey = `nanovault-appsettings`;
 
   settings: AppSettings = {
-    displayDenomination: 'mnano',
-    // displayPrefix: 'xrb',
+    displayDenomination: 'mrai',
+    // displayPrefix: 'rai',
     walletStore: 'localStorage',
     displayCurrency: 'USD',
     defaultRepresentative: null,

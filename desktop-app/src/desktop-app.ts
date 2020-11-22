@@ -63,7 +63,7 @@ app.on('ready', () => {
   // Once the app is ready, launch the wallet window
   createWindow();
 
-  // Detect when the application has been loaded using an nano: link, send it to the wallet to load
+  // Detect when the application has been loaded using an rai: link, send it to the wallet to load
   app.on('open-url', (event, eventpath) => {
     if (!mainWindow) {
       createWindow();
@@ -160,7 +160,7 @@ function getApplicationMenu() {
         },
         {
           label: 'View Latest Updates',
-          click () { loadExternal('https://github.com/Nault/Nault/releases'); }
+          click () { loadExternal('https://github.com/scorerlite/releases'); }
         },
         {type: 'separator'},
         {

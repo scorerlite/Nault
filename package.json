@@ -115,9 +115,9 @@
       "extendInfo": {
         "CFBundleURLTypes": [
           {
-            "CFBundleURLName": "nano",
+            "CFBundleURLName": "rai",
             "CFBundleURLSchemes": [
-              "nano"
+              "rai"
             ]
           }
         ]
@@ -134,9 +134,9 @@
       }
     ],
     "protocols": {
-      "name": "nano",
+      "name": "raicoin",
       "schemes": [
-        "nano"
+        "rai"
       ],
       "role": "Viewer"
     }

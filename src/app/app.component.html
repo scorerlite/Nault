@@ -16,10 +16,10 @@
     <!-- Accounts dropdown -->
     <div #accountsDropdown [class]="[ 'accounts-dropdown', showAccountsDropdown ? 'visible' : 'hidden' ]">
       <div class="header">Currently Selected</div>
-      <div class="account active" *ngIf="wallet.selectedAccount !== null"> <!-- active nano_ account -->
+      <div class="account active" *ngIf="wallet.selectedAccount !== null"> <!-- active rai_ account -->
         <div class="name-column">
           <div class="name">{{ wallet.selectedAccount.addressBookName ? wallet.selectedAccount.addressBookName : ('Account #' + wallet.selectedAccount.index) }}</div>
-          <div class="address nano-address-monospace">{{ wallet.selectedAccount.id }}</div>
+          <div class="address rai-address-monospace">{{ wallet.selectedAccount.id }}</div>
         </div>
         <div class="balance-column">
           <div class="balance primary">{{ wallet.selectedAccount.balance | rai: settings.settings.displayDenomination }}</div>
@@ -40,13 +40,13 @@
         <div class="account inactive" (click)="selectAccount(account)" *ngIf="( (wallet.selectedAccount === null) || (wallet.selectedAccount.id !== account.id) )">
           <div class="name-column">
             <div class="name">{{ account.addressBookName ? account.addressBookName : ('Account #' + account.index) }}</div>
-            <div class="address nano-address-monospace">{{ account.id }}</div>
+            <div class="address rai-address-monospace">{{ account.id }}</div>
           </div>
           <div class="balance-column">
             <div class="balance primary">
               <span class="incoming-label" *ngIf="account.pending.gt(0)">
                 <span class="text-snippet">New</span>
-                <span class="text-full">+{{ account.pending | rai: 'mnano,true' }}</span>
+                <span class="text-full">+{{ account.pending | rai: 'mrai,true' }}</span>
               </span>
               {{ account.balance | rai: settings.settings.displayDenomination }}
             </div>
@@ -64,7 +64,7 @@
           <div uk-grid>
             <div class="uk-width-expand">
 
-              <div [class]="[ 'nav-nano-card', (wallet.selectedAccount === null) ? 'is-wallet' : 'is-card' ]">
+              <div [class]="[ 'nav-rai-card', (wallet.selectedAccount === null) ? 'is-wallet' : 'is-card' ]">
                 <div class="logo"></div>
                 <div class="card-contents">
                   <div class="account-name-container">
@@ -90,10 +90,10 @@
                   <div class="account-balances">
                     <ng-container *ngIf="node.status || !isConfigured()">
                       <div class="balance-container primary">
-                        <div class="currency-name">NANO</div>
+                        <div class="currency-name">RAICOIN</div>
                         <div class="amount-container">
-                          <div class="amount-integer">{{ (wallet.selectedAccount !== null ? wallet.selectedAccount.balance : wallet.balance) | rai: 'mnano,true' | amountsplit: 0 }}</div>
-                          <div class="amount-fractional">{{ (wallet.selectedAccount !== null ? wallet.selectedAccount.balance : wallet.balance) | rai: 'mnano,true' | amountsplit: 1 }}</div>
+                          <div class="amount-integer">{{ (wallet.selectedAccount !== null ? wallet.selectedAccount.balance : wallet.balance) | rai: 'mrai,true' | amountsplit: 0 }}</div>
+                          <div class="amount-fractional">{{ (wallet.selectedAccount !== null ? wallet.selectedAccount.balance : wallet.balance) | rai: 'mrai,true' | amountsplit: 1 }}</div>
                         </div>
                       </div>
                       <div class="balance-container converted" *ngIf="settings.settings.displayCurrency">
@@ -106,7 +106,7 @@
                     </ng-container>
                     <ng-container *ngIf="isConfigured() && (node.status === null)">
                       <div class="spinner-container">
-                        <div uk-spinner="ratio: 0.6;" uk-tooltip title="Attempting to connect to Nano node"></div>
+                        <div uk-spinner="ratio: 0.6;" uk-tooltip title="Attempting to connect to Raicoin node"></div>
                       </div>
                     </ng-container>
                   </div>
@@ -134,17 +134,17 @@
                     </div>
                   </ng-template>
                 </ng-template>
-                <div class="nav-nano-card incoming-card uk-animation-slide-left">
+                <div class="nav-rai-card incoming-card uk-animation-slide-left">
                   <div class="card-contents">
                     <div class="account-name-container">
                       <a routerLink="/receive" class="name">Incoming Balance</a>
                     </div>
                     <div class="account-balances">
                       <div class="balance-container primary">
-                        <div class="currency-name">NANO</div>
+                        <div class="currency-name">RAICOIN</div>
                         <div class="amount-container">
-                          <div class="amount-integer">{{ (wallet.selectedAccount ? wallet.selectedAccount.pending : wallet.pending) | rai: 'mnano,true' | amountsplit: 0 }}</div>
-                          <div class="amount-fractional">{{ (wallet.selectedAccount ? wallet.selectedAccount.pending : wallet.pending) | rai: 'mnano,true' | amountsplit: 1 }}</div>
+                          <div class="amount-integer">{{ (wallet.selectedAccount ? wallet.selectedAccount.pending : wallet.pending) | rai: 'mrai,true' | amountsplit: 0 }}</div>
+                          <div class="amount-fractional">{{ (wallet.selectedAccount ? wallet.selectedAccount.pending : wallet.pending) | rai: 'mrai,true' | amountsplit: 1 }}</div>
                         </div>
                       </div>
                       <div class="balance-container converted" *ngIf="settings.settings.displayCurrency">
@@ -230,7 +230,7 @@
           <div class="uk-width-1-1 uk-text-center">
             <a class="footer-link donation-icon" routerLink="/send" [queryParams]="{ to: donationAccount }" routerLinkActive="active" uk-tooltip title="Contribute to this wallet with a custom donation!"><span uk-icon="icon: heart;"></span></a>
             <a href="https://github.com/Nault/Nault" uk-icon="icon: github-alt" uk-tooltip title="View our GitHub" class="footer-link" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://twitter.com/TheNanoCenter" uk-icon="icon: twitter" uk-tooltip title="Chat with us on Twitter" class="footer-link" target="_blank" rel="noopener noreferrer"></a>
+            <a href="https://twitter.com/RaicoinC" uk-icon="icon: twitter" uk-tooltip title="Chat with us on Twitter" class="footer-link" target="_blank" rel="noopener noreferrer"></a>
             <a href="https://discord.nanocenter.org" uk-icon="icon: users" uk-tooltip title="Join our community on Discord" class="footer-link" target="_blank" rel="noopener noreferrer"></a>
           </div>
           <div class="attribution uk-width-1-1 uk-text-center">

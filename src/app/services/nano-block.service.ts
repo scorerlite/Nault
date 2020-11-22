@@ -11,14 +11,14 @@ import {BehaviorSubject} from 'rxjs';
 const nacl = window['nacl'];
 
 @Injectable()
-export class NanoBlockService {
+export class RaiBlockService {
   representativeAccounts = [
-    'nano_1center16ci77qw5w69ww8sy4i4bfmgfhr81ydzpurm91cauj11jn6y3uc5y', // The Nano Center
-    'nano_1x7biz69cem95oo7gxkrw6kzhfywq4x5dupw4z1bdzkb74dk9kpxwzjbdhhs', // NanoCrawler
-    'nano_1thingspmippfngcrtk1ofd3uwftffnu4qu9xkauo9zkiuep6iknzci3jxa6', // NanoThings
-    'nano_3chartsi6ja8ay1qq9xg3xegqnbg1qx76nouw6jedyb8wx3r4wu94rxap7hg', // Nano Charts
-    'nano_1ninja7rh37ehfp9utkor5ixmxyg8kme8fnzc4zty145ibch8kf5jwpnzr3r', // My Nano Ninja
-    'nano_1iuz18n4g4wfp9gf7p1s8qkygxw7wx9qfjq6a9aq68uyrdnningdcjontgar', // NanoTicker / Json
+    'rai_3h5s5bgaf1jp1rofe5umxan84kiwxj3ppeuyids7zzaxahsohzchcyxqzwp6', // official node #1
+    'rai_1os5ozxsjajpnkdj6zghzdy5fjncpa6egkjisgggutxkbmqicc8mjjfy87ja', // official node #2
+    'rai_1khj7pa81ffn3o44jfqopeoq3apxpdagpjo9gu1nwc6x9ccpjggjouhifkkw', // official node #3
+    'rai_1b5wb8hs5d3u5q8cnesk5xprr4damryn9xmrju7grdrtq6sxpanrwjo4s4r3', // official node #4
+    'rai_391mam7h9gxedh3bg9ge44tmbt3c5mutott7ug99u6eqdouwgftzed1tz9i5', // official node #5
+    'rai_3fbshbikq9w5pz8hpm4bcp1ugzamkqq8sqpch6qd4oy1bwrwdzjpj6fyhbio', // official node #6
   ];
 
   zeroHash = '0000000000000000000000000000000000000000000000000000000000000000';
@@ -400,14 +400,14 @@ export class NanoBlockService {
     if (blockData.contents.type !== 'state') {
       throw new Error(`Frontier block wasn't a state block, which shouldn't be possible`);
     }
-    if (this.util.hex.fromUint8(this.util.nano.hashStateBlock(blockData.contents)) !== accountInfo.frontier) {
+    if (this.util.hex.fromUint8(this.util.rai.hashStateBlock(blockData.contents)) !== accountInfo.frontier) {
       throw new Error(`Frontier hash didn't match block data`);
     }
   }
 
   // Sign a state block, and insert the signature into the block.
   signStateBlock(walletAccount, blockData) {
-    const hashBytes = this.util.nano.hashStateBlock(blockData);
+    const hashBytes = this.util.rai.hashStateBlock(blockData);
     const privKey = walletAccount.keyPair.secretKey;
     const signed = nacl.sign.detached(hashBytes, privKey, walletAccount.keyPair.expanded);
     blockData.signature = this.util.hex.fromUint8(signed);

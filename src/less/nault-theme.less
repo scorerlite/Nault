@@ -6,7 +6,7 @@
 // ========================================================================
 
 h1, h2, h3, h4, h5, .uk-text-lead, .uk-button, .uk-alert, .uk-description-list dt,
-.uk-table th, .uk-form-label, .uk-form-icon, .nav-nano-card, .nav-representative-info,
+.uk-table th, .uk-form-label, .uk-form-icon, .nav-rai-card, .nav-representative-info,
 .accounts-dropdown, .nav-container .nav-action-receive, .left-nav > li, .mobile-top-bar {
 	font-family: @global-secondary-font-family;
 }
@@ -129,11 +129,11 @@ h1, h2, h3, h4, h5, .uk-text-lead, .uk-button, .uk-alert, .uk-description-list d
     }
 }
 
-.nano-address-monospace {
+.rai-address-monospace {
     font-family: 'Roboto Mono', monospace;
 }
 
-.nano-address-clickable {
+.rai-address-clickable {
     display: inline-block;
     border-bottom: 2px solid transparent;
     transition: border-color 100ms ease-in-out;
@@ -145,16 +145,16 @@ h1, h2, h3, h4, h5, .uk-text-lead, .uk-button, .uk-alert, .uk-description-list d
     }
 
     &:hover {
-        .nano-address-clickable-hover-styles();
+        .rai-address-clickable-hover-styles();
     }
 }
 
-.nano-address-actions {
+.rai-address-actions {
     margin-bottom: 3px !important;
     padding-left: 10px;
 }
 
-.nano-address-clickable-hover-styles() {
+.rai-address-clickable-hover-styles() {
     border-color: @global-primary-background;
 }
 
@@ -163,8 +163,8 @@ h1, h2, h3, h4, h5, .uk-text-lead, .uk-button, .uk-alert, .uk-description-list d
         .account-label-hover-styles();
     }
 
-    .nano-address-clickable {
-        .nano-address-clickable-hover-styles();
+    .rai-address-clickable {
+        .rai-address-clickable-hover-styles();
     }
 }
 

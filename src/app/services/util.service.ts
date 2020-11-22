@@ -65,12 +65,12 @@ export class UtilService {
     isValidAmount: isValidAmount,
   };
   nano = {
-    mnanoToRaw: mnanoToRaw,
-    knanoToRaw: knanoToRaw,
-    nanoToRaw: nanoToRaw,
-    rawToMnano: rawToMnano,
-    rawToKnano: rawToKnano,
-    rawToNano: rawToNano,
+    mraiToRaw: mraiToRaw,
+    kraiToRaw: kraiToRaw,
+    raiToRaw: raiToRaw,
+    rawToMrai: rawToMrai,
+    rawToKrai: rawToKrai,
+    rawTorai: rawTorai,
     hashStateBlock: hashStateBlock,
     isValidSeed: isValidSeed,
     isValidHash: isValidHash,
@@ -282,7 +282,7 @@ function generateAccountKeyPair(accountSecretKeyBytes, expanded = false) {
   return nacl.sign.keyPair.fromSecretKey(accountSecretKeyBytes, expanded);
 }
 
-function getPublicAccountID(accountPublicKeyBytes, prefix = 'nano') {
+function getPublicAccountID(accountPublicKeyBytes, prefix = 'rai') {
   const accountHex = util.uint8.toHex(accountPublicKeyBytes);
   const keyBytes = util.uint4.toUint8(util.hex.toUint4(accountHex)); // For some reason here we go from u, to hex, to 4, to 8??
   const checksum = util.uint5.toString(util.uint4.toUint5(util.uint8.toUint4(blake.blake2b(keyBytes, null, 5).reverse())));
@@ -295,12 +295,12 @@ function isValidAccount(account: string): boolean {
   return nanocurrency.checkAddress(account);
 }
 
-// Check if a string is a numeric and larger than 0 but less than Nano supply
+// Check if a string is a numeric and larger than 0 but less than rai supply
 function isValidNanoAmount(val: string) {
   // numerics and last character is not a dot and number of dots is 0 or 1
   const isnum = /^-?\d*\.?\d*$/.test(val);
   if (isnum && String(val).slice(-1) !== '.') {
-    if (val !== '' && mnanoToRaw(val).gte(1) && nanocurrency.checkAmount(mnanoToRaw(val).toString(10))) {
+    if (val !== '' && mraiToRaw(val).gte(1) && nanocurrency.checkAmount(mraiToRaw(val).toString(10))) {
       return true;
     } else {
       return false;
@@ -321,7 +321,7 @@ function getAccountPublicKey(account) {
   }
   const account_crop = account.length === 64 ? account.substring(4, 64) : account.substring(5, 65);
   const isValid = /^[13456789abcdefghijkmnopqrstuwxyz]+$/.test(account_crop);
-  if (!isValid) throw new Error(`Invalid NANO account`);
+  if (!isValid) throw new Error(`Invalid RAICOIN account`);
 
   const key_uint4 = array_crop(uint5ToUint4(stringToUint5(account_crop.substring(0, 52))));
   const hash_uint4 = uint5ToUint4(stringToUint5(account_crop.substring(52, 60)));
@@ -333,41 +333,41 @@ function getAccountPublicKey(account) {
   return uint4ToHex(key_uint4);
 }
 
-function setPrefix(account, prefix = 'xrb') {
-  if (prefix === 'nano') {
-    return account.replace('xrb_', 'nano_');
+function setPrefix(account, prefix = 'rai') {
+  if (prefix === 'rai') {
+    return account.replace('xrb_', 'rai_');
   } else {
-    return account.replace('nano_', 'xrb_');
+    return account.replace('nano_', 'rai_');
   }
 }
 
 /**
  * Conversion functions
  */
-const mnano = 1000000000000000000000000000000;
-const knano = 1000000000000000000000000000;
-const nano  = 1000000000000000000000000;
-function mnanoToRaw(value) {
-  return new BigNumber(value).times(mnano);
+const mrai = 1000000000000000000000000000000;
+const krai = 1000000000000000000000000000;
+const rai  = 1000000000000000000000000;
+function mraiToRaw(value) {
+  return new BigNumber(value).times(mrai);
 }
-function knanoToRaw(value) {
-  return new BigNumber(value).times(knano);
+function kraiToRaw(value) {
+  return new BigNumber(value).times(krai);
 }
-function nanoToRaw(value) {
-  return new BigNumber(value).times(nano);
+function raiToRaw(value) {
+  return new BigNumber(value).times(rai);
 }
-function rawToMnano(value) {
-  return new BigNumber(value).div(mnano);
+function rawToMrai(value) {
+  return new BigNumber(value).div(mrai);
 }
-function rawToKnano(value) {
-  return new BigNumber(value).div(knano);
+function rawToKrai(value) {
+  return new BigNumber(value).div(krai);
 }
-function rawToNano(value) {
-  return new BigNumber(value).div(nano);
+function rawTorai(value) {
+  return new BigNumber(value).div(rai);
 }
 
 /**
- * Nano functions
+ * RAICOIN functions
  */
 function isValidSeed(val: string) {
   return nanocurrency.checkSeed(val);
@@ -499,13 +499,13 @@ const util = {
     isValidNanoAmount: isValidNanoAmount,
     isValidAmount: isValidNanoAmount,
   },
-  nano: {
-    mnanoToRaw: mnanoToRaw,
-    knanoToRaw: knanoToRaw,
-    nanoToRaw: nanoToRaw,
-    rawToMnano: rawToMnano,
-    rawToKnano: rawToKnano,
-    rawToNano: rawToNano,
+  rai: {
+    mraiToRaw: mraiToRaw,
+    kraiToRaw: kraiToRaw,
+    raiToRaw: raiToRaw,
+    rawToMrai: rawToMrai,
+    rawToKrai: rawToKrai,
+    rawTorai: rawTorai,
     hashStateBlock: hashStateBlock,
     isValidSeed: isValidSeed,
     isValidHash: isValidHash,
